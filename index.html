@@ -2,21 +2,46 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="./style.css" />
   <title>Neumorphism</title>
+  <!-- 文字コード -->
+  <meta charset="UTF-8">
+  <!-- レスポンシブ対応 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ページの説明を記入する。表示される文字数は、60~120字文字程度 -->
+  <meta name="description" content="ページの説明" />
+  <!-- iPhone電話番号らしき文字列がリンクになるのを防ぐ -->
+  <meta name="format-detection" content="telephone=no" />
+  <!-- ファビコン -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" type="text/css" href="./style.css" />
+
+  <!-- OGP関連 SNSなどでシェアされた時に表示される情報 -->
+  <!-- <meta property="og:site_name" content="サイト名" /> -->
+  <meta property="og:site_name" content="Neumorphism" />
+  <!-- ページURLを設定。絶対パスで記入 -->
+  <meta property="og:url" content="" />
+  <!-- トップページであればwebsite、それ以外はarticle -->
+  <meta property="og:type" content="website" />
+  <!-- ページタイトルを設定 -->
+  <meta property="og:title" content="Neumorphismtoppage" />
+  <!-- ページの説明を設定 -->
+  <meta property="og:description" content="Neumorphismの解説サイト" />
+  <!-- シェアされた時に表示したい画像を設定 絶対パスで記入 1200px × 630pxの画像-->
+  <meta property="og:image" content="URL" />
+  <!-- 検索結果にインデックス(表示)させたくないページに指定質の低いページにはnoindexやnofollowを使用 -->
+  <!-- <meta name="robots" content="noindex,nofollow"> -->
 </head>
 
 <body>
   <div class="container">
-    <h1 class="title">Neumorphism</h1>
+    <header class="container__header">
+      <a href="./index.html">Neumorphism</a>
+    </header>
     <main class="main_content">
 
       <p>各ページへのリンク</p>
       <p>Link to each page</p>
-      <nav class="nav">
+      <nav class="navarea">
         <a href="button.html">Button</a>
         <a href="accordion.html">Accordion</a>
         <a href="input.html">Input</a>
