@@ -559,16 +559,21 @@ body {
   gap: 32px;
 }
 
+.container__header {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
 .title {
   font-size: 1.5rem;
   font-weight: bold;
 }
 
-.nav {
+.navarea {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
+  gap: 24px;
 }
 
 /* nav内の子要素に対して */
