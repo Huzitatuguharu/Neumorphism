@@ -277,13 +277,6 @@ svg:not(:root) {
   overflow: hidden;
 }
 
-/**
- * iframeのボーダーは取り除く。
- */
-iframe {
-  border-style: none;
-}
-
 /* ==========================================================================
   Form
   ========================================================================== */
@@ -549,9 +542,15 @@ template {
   ========================================================================== */
 body {
   background: #edfafd;
-  color: #4b5563;
 }
 
+.main_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 12px;
+}
 .container {
   display: flex;
   justify-content: center;
@@ -569,5 +568,22 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  gap: 12px;
+}
+
+/* nav内の子要素に対して */
+.navarea > a:hover,
+.footerarea > a:hover {
+  color: #5abaff;
+  cursor: pointer;
+}
+
+/**
+ * iframeのスタイル
+
+ * 親要素の幅以下にする
+ */
+iframe {
+  border: 1px solid #414b5a;
+  max-width: 100%;
 }

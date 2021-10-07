@@ -6,15 +6,27 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="./style.css" />
-  <title>Neumorphism/accordion</title>
+  <title>NeumorphismAccordion</title>
 </head>
 
 <body>
-  <div class="container">
-    <p>accordionページです</p>
-    <a href="./index.html">Home</a>
 
-  </div>
+  <div class="container">
+    <h1 class="title">Accordion</h1>
+    <!-- title がないと、埋め込みコンテンツが何であるかを特定できない。コンテンツリーダーで読み取られることがある-->
+
+    <!-- 何も指定しなかった場合、フレームは「幅300px」「高さ150px」で表示 -->
+
+    <!-- sandbox属性でサンドボックス化 -->
+    <iframe
+      src="https://codesandbox.io/embed/neumorphism-accordion-bz34s?autoresize=1&fontsize=14&hidenavigation=1&module=%2Fpackage.json&theme=dark"
+      style="width:60%; height:500px; border-radius: 4px; overflow:hidden;" title="Neumorphism　Accordion"
+      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"></iframe>
+
+    <footer class='footerarea'>
+      <a href="./index.html">Home</a>
+    </footer>
 
 </body>
 
