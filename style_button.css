@@ -1,0 +1,42 @@
+/* ==========================================================================
+  ここからbutton
+  =====*/
+
+.wrapper {
+  display: flex;
+
+  gap: 50px;
+  width: 300px;
+  max-width: 300px;
+}
+
+button {
+  font-weight: bold;
+  color: #414b5a;
+  padding: 18px;
+  border: none;
+  border-radius: 16px;
+  background: #edfafd;
+  box-shadow: -8px -8px 13px rgba(255, 255, 255, 0.8), 8px 8px 13px #d1dcdf;
+  margin: auto;
+  transition: 0.2s;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #b8e1ff;
+  cursor: pointer;
+}
+button:active {
+  background: #edfafd;
+  box-shadow: inset 13px 13px 21px #e1eef0, inset -13px -13px 21px #f9ffff;
+}
+
+.disabled {
+  background: #dbdbdb;
+}
+
+.disabled:hover {
+  background: #dbdbdb;
+  cursor: not-allowed;
+}

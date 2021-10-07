@@ -7,6 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="./style.css" />
   <title>Neumorphisminput</title>
+  <!-- spearlyCMS -->
+  <script src="https://static.spearly.com/js/main.js" defer></script>
+  <script>window.addEventListener('DOMContentLoaded', () => { const t = document.querySelectorAll(':not(:defined)'); for (const e of t) { e.style.visibility = "hidden"; } }, { once: true })</script>
+</head>
 </head>
 
 <body>
@@ -19,7 +23,13 @@
     <!-- 何も指定しなかった場合、フレームは「幅300px」「高さ150px」で表示 -->
     <!-- sandbox属性でサンドボックス化 -->
 
+    <explain-item data-id="c-nr8s9eIq4atEAJfUFZGk" data-lock="true">
+      <h1>{%= explain_title %}</h1>
+      <div style="background: url('{%= explain_image %}');"></div>
+      <p>{%= explain_description %}</p>
+      <p>{%= explain_detail %}</p>
 
+    </explain-item>
     <iframe src="https://codesandbox.io/embed/neumorphism-input-l76hi?fontsize=14&hidenavigation=1&theme=dark"
       style="width:60%; height:500px;  border-radius: 4px; overflow:hidden;" title="Neumorphism　input"
       allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"

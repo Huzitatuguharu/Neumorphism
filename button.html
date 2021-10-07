@@ -6,7 +6,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="./style.css" />
+  <link rel="stylesheet" type="text/css" href="./style_button.css" />
+
+
+  <link rel="stylesheet" href="https://static.spearly.com/css/spearly-richtext.min.css" type="text/css">
   <title>NeumorphismButton</title>
+
+  <!-- spearlyCMS -->
+  <script src="https://static.spearly.com/js/main.js" defer></script>
+  <script>window.addEventListener('DOMContentLoaded', () => { const t = document.querySelectorAll(':not(:defined)'); for (const e of t) { e.style.visibility = "hidden"; } }, { once: true })</script>
 </head>
 
 <body>
@@ -15,16 +23,27 @@
       <a href="./index.html">Neumorphism</a>
     </header>
     <h1 class="title">Button</h1>
+
+    <div class="wrapper">
+      <button type="button" class="normal">Normal</button>
+      <button type="button" disabled class="disabled">Disabled</button>
+    </div>
+
+    <explain-item data-id="c-dwM5Rz7TnWDC4bQoj0IF" data-lock="true">
+      <h1>{%= explain_title %}</h1>
+      <div style="background: url('{%= explain_image %}');"></div>
+      <p>{%= explain_description %}</p>
+      <p>{%= explain_detail %}</p>
+
+    </explain-item>
+
     <!-- title がないと、埋め込みコンテンツが何であるかを特定できない。コンテンツリーダーで読み取られることがある-->
-
     <!-- 何も指定しなかった場合、フレームは「幅300px」「高さ150px」で表示 -->
-
     <!-- sandbox属性でサンドボックス化 -->
-    <iframe
-      src="https://codesandbox.io/embed/neumorphism-button-8398o?autoresize=1&fontsize=14&hidenavigation=1&theme=dark"
-      style="width:60%; height:500px; border-radius: 4px; overflow:hidden;" title="Neumorphism　Button"
-      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"></iframe>
+    <!-- <iframe src="https://codesandbox.io/embed/neumorphism-button-8398o?autoresize=1&fontsize=14&hidenavigation=1&theme=dark"
+        style="width:60%; height:500px; border-radius: 4px; overflow:hidden;" title="Neumorphism　Button"
+        allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+        sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"></iframe> -->
 
     <footer class='footerarea'>
       <a href="./index.html">Home</a>

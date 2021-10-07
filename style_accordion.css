@@ -1,0 +1,83 @@
+
+/* ==========================================================================
+  ここからaccordion
+  =====*/
+
+summary {
+  display: block;
+}
+/* Chrome、Safari */
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 30px;
+  width: 300px;
+  max-width: 300px;
+}
+
+summary {
+  color: #414b5a;
+  padding: 18px;
+  border-radius: 16px;
+  background: #edfafd;
+  box-shadow: -8px -8px 13px rgba(255, 255, 255, 0.8), 8px 8px 13px #d1dcdf;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+}
+
+p {
+  margin: 0;
+  padding: 20px;
+}
+
+summary:hover {
+  background-color: #c1e1ff;
+  cursor: pointer;
+}
+summary:active {
+  background: #edfafd;
+  box-shadow: inset 13px 13px 21px #e1eef0, inset -13px -13px 21px #f9ffff;
+}
+
+summary:before {
+  font-family: "Material Icons";
+  content: "\e145";
+}
+
+/* オープン時 */
+
+details[open] {
+  color: #414b5a;
+  border-radius: 16px;
+  background: #edfafd;
+  box-shadow: -8px -8px 13px rgba(255, 255, 255, 0.8), 8px 8px 13px #d1dcdf;
+  margin: auto;
+}
+
+details[open] summary {
+  color: #0040a0;
+  border-radius: 16px;
+  font-weight: bold;
+  background: #edfafd;
+  box-shadow: none;
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+
+details[open] .summary:hover {
+  background-color: #c1e1ff;
+  cursor: pointer;
+}
+
+details[open] summary:before {
+  transform: rotate(45deg);
+}
