@@ -49,8 +49,8 @@ html {
 body {
   background-color: #fafafa;
   color: #333;
-  font-family: "Helvetica Neue", "Segoe UI", "Hiragino Kaku Gothic ProN",
-    "Hiragino Sans", meiryo, sans-serif;
+  font-family: "Helvetica Neue", "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", meiryo,
+    sans-serif;
   line-height: 1.5;
   min-height: 100%;
   /* 1 */
@@ -582,6 +582,19 @@ body {
 .footerarea > a:hover {
   color: #5abaff;
   cursor: pointer;
+}
+
+.nav__child {
+  cursor: pointer;
+}
+
+.nav__child:hover {
+  color: #5abaff;
+}
+
+.container__content {
+  border: 1px solid black;
+  width: 90%;
 }
 
 /**

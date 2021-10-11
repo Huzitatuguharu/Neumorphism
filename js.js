@@ -1,114 +1,168 @@
-// For today, understand what all this below means: getElementById, createElement, appendChild
-// Finish making the index.html
+// We are going to build an SPA webapp.
+// So we will handle all your links inside app without
+// refreshing the page.
 
-const app = document.getElementById("app");
-console.log("app", app);
+// Object with few properties
+const App = {
+  // Run this function to start the app: App.init()
+  init() {
+    console.log("Start the engines")
 
-// divタグを追加
-const container = document.createElement("div");
-// containerにclassname = containerを追加
-container.classList.add("container");
+    // this: the context of the Object/function/class
+    console.log("->", this)
 
-// divタグを追加
-const header = document.createElement("div");
-// headerにclass = container__headerを追加
-header.classList.add("container__header");
-console.log(header);
+    this.controllers.createStaticElements()
 
-// aタグを追加
-const a = document.createElement("a");
-// リンクを追加
-a.href = "./index.html";
-// 文字列追加
-a.innerHTML = "Neumorphism";
-
-// headerのchildにa追加
-header.appendChild(a);
-console.log(a);
-
-// mainタグを追加
-const main = document.createElement("main");
-// headerにclass =main_contentを追加
-container.classList.add("main_content");
-
-// pタグを追加
-const massage_ja = document.createElement("p");
-// 文字列追加
-massage_ja.innerHTML = "各ページへのリンク";
-
-// pタグを追加
-const massage_en = document.createElement("p");
-// 文字列追加
-massage_en.innerHTML = "Link to each page";
-
-// navタグを追加
-const nav = document.createElement("nav");
-// navにclass= container__navを追加
-nav.classList.add("container__nav");
-
-const nav__list = [
-  {
-    link: "button.html",
-    text: "Button",
+    console.log("Finished")
   },
-  {
-    link: "accordion.html",
-    text: "Accordion",
+
+  // Here is where we keep our app variables
+  state: {
+    navChild: [
+      {
+        text: "Button",
+        src: "https://codesandbox.io/embed/neumorphism-button-8398o?autoresize=1&fontsize=14&hidenavigation=1&theme=dark",
+      },
+      {
+        text: "Accordion",
+        src: "https://codesandbox.io/embed/neumorphism-accordion-bz34s?autoresize=1&fontsize=14&hidenavigation=1&module=%2Fpackage.json&theme=dark",
+      },
+      {
+        text: "Input",
+        src: "https://codesandbox.io/embed/neumorphism-input-l76hi?fontsize=14&hidenavigation=1&theme=dark",
+      },
+    ],
   },
-  {
-    link: "input.html",
-    text: "Input",
+
+  // Here is the place where we control our App
+  controllers: {
+    // Render dynamically the elements
+    showElement(child) {
+      console.log("lets render", child)
+      document.title = child.text
+
+      // Clear the previous content
+      App.elements.content.innerHTML = ""
+
+      // Create the iframe
+      const iframe = document.createElement("iframe")
+      iframe.src = child.src
+      iframe.style.width = "60%"
+      iframe.style.height = "500px"
+      iframe.style.borderRadius = "4px"
+      iframe.style.overflow = "hidden"
+      iframe.allow =
+        "accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+      iframe.sandbox =
+        "allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+
+      // append and show the iframe
+      App.elements.content.appendChild(iframe)
+    },
+
+    createStaticElements() {
+      const els = App.elements
+
+      console.log("Create static elements")
+
+      // containerにclassname = containerを追加
+      els.container.classList.add("container")
+      // headerにclass =main_contentを追加
+      els.container.classList.add("main_content")
+      console.log("container", els.container)
+
+      // headerにclass = container__headerを追加
+      els.header.classList.add("container__header")
+      console.log("header", els.header)
+
+      // リンクを追加
+      els.a.href = "./index.html"
+      // 文字列追加
+      els.a.innerHTML = "Neumorphism"
+      console.log("a", els.a)
+
+      // 文字列追加
+      els.messageJa.innerHTML = "各ページへのリンク"
+
+      // 文字列追加
+      els.messageEn.innerHTML = "Link to each page"
+
+      // navにclass= container__navを追加
+      els.nav.classList.add("container__nav")
+
+      for (let i = 0; i < App.state.navChild.length; i++) {
+        const child = App.state.navChild[i]
+
+        const item = document.createElement("span")
+        item.classList.add("nav__child")
+        item.innerHTML = child.text
+        item.onclick = () => {
+          App.controllers.showElement(child)
+        }
+
+        els.nav.appendChild(item)
+      }
+
+      els.content.classList.add("container__content")
+
+      // headerのchildにa追加
+      els.header.appendChild(els.a)
+
+      // mainのchildに追加
+      els.main.appendChild(els.messageJa)
+      els.main.appendChild(els.messageEn)
+      els.main.appendChild(els.nav)
+
+      // containerのchildにheader追加
+      els.container.appendChild(els.header)
+      els.container.appendChild(els.main)
+      els.container.appendChild(els.content)
+      els.app.appendChild(els.container)
+
+      console.log("Done")
+    },
   },
-];
 
-// Arraydeclaration;
-let nav__child = [];
-
-// // aタグを追加
-// nav__child[0] = document.createElement("a");
-// // リンクを追加
-// nav__child[0].href = nav__list[0].link;
-// // 文字列追加
-// nav__child[0].innerHTML = nav__list[0].text;
-
-// // aタグを追加
-// nav__child[1] = document.createElement("a");
-// // リンクを追加
-// nav__child[1].href = nav__list[1].link;
-// // 文字列追加
-// nav__child[1].innerHTML = nav__list[1].text;
-
-// // aタグを追加
-// nav__child[2] = document.createElement("a");
-// // リンクを追加
-// nav__child[2].href = nav__list[2].link;
-// // 文字列追加
-// nav__child[2].innerHTML = nav__list[2].text;
-
-
-// navのchildにheader追加
-
-for (let i = 0; i < nav__list.length; i++) {
-  // aタグを追加
-  nav__child[i] = document.createElement("a");
-  // リンクを追加
-  nav__child[i].href = nav__list[i].link;
-  // 文字列追加
-  nav__child[i].innerHTML = nav__list[i].text;
-  console.log(nav__list[i]);
-  nav.appendChild(nav__child[i]);
+  // We will keep here all our references
+  elements: {
+    app: document.getElementById("app"),
+    container: document.createElement("div"),
+    header: document.createElement("div"),
+    a: document.createElement("a"),
+    main: document.createElement("main"),
+    messageJa: document.createElement("p"),
+    messageEn: document.createElement("p"),
+    nav: document.createElement("nav"),
+    content: document.createElement("div"),
+  },
 }
-console.log("🐕", nav);
 
-// mainのchildに追加
-main.appendChild(massage_ja);
-main.appendChild(massage_en);
-main.appendChild(nav);
+App.init()
 
-// containerのchildにheader追加
-container.appendChild(header);
-container.appendChild(main);
+// // Arraydeclaration;
+// let nav__child = []
 
-console.log(container);
+// // // aタグを追加
+// // nav__child[0] = document.createElement("a");
+// // // リンクを追加
+// // nav__child[0].href = nav__list[0].link;
+// // // 文字列追加
+// // nav__child[0].innerHTML = nav__list[0].text;
 
-app.appendChild(container);
+// // // aタグを追加
+// // nav__child[1] = document.createElement("a");
+// // // リンクを追加
+// // nav__child[1].href = nav__list[1].link;
+// // // 文字列追加
+// // nav__child[1].innerHTML = nav__list[1].text;
+
+// // // aタグを追加
+// // nav__child[2] = document.createElement("a");
+// // // リンクを追加
+// // nav__child[2].href = nav__list[2].link;
+// // // 文字列追加
+// // nav__child[2].innerHTML = nav__list[2].text;
+
+// // navのchildにheader追加
+
+// console.log("🐕", nav)
