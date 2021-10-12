@@ -653,7 +653,7 @@ summary::-webkit-details-marker {
   display: none;
 }
 
-summary {
+.summary {
   color: #414b5a;
   padding: 18px;
   border-radius: 16px;
@@ -670,16 +670,16 @@ summary {
   padding: 20px;
 }
 
-summary:hover {
+.summary:hover {
   background-color: #c1e1ff;
   cursor: pointer;
 }
-summary:active {
+.summary:active {
   background: #edfafd;
   box-shadow: inset 13px 13px 21px #e1eef0, inset -13px -13px 21px #f9ffff;
 }
 
-summary:before {
+.summary:before {
   font-family: "Material Icons";
   content: "\e145";
 }
@@ -694,7 +694,7 @@ details[open] {
   margin: auto;
 }
 
-details[open] summary {
+details[open] .summary {
   color: #0040a0;
   border-radius: 16px;
   font-weight: bold;
@@ -710,7 +710,7 @@ details[open] .summary:hover {
   cursor: pointer;
 }
 
-details[open] summary:before {
+details[open] .summary:before {
   transform: rotate(45deg);
 }
 
@@ -718,7 +718,7 @@ details[open] summary:before {
 Input
  */
 
-input[type="text"] {
+.input[type="text"] {
   font-weight: bold;
   color: #414b5a;
   padding: 18px;
@@ -731,7 +731,7 @@ input[type="text"] {
   width: 100%;
 }
 
-input[type="text"]:focus {
+.input[type="text"]:focus {
   border-bottom: 5px solid #b8e1ff;
   outline: 0;
 }

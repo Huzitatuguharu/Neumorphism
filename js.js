@@ -48,12 +48,11 @@ const App = {
 
       if (child.text === "Button") {
         const button = document.createElement("button");
-        button.innerHTML = "Button";
 
+        button.innerHTML = "Button";
         button.classList.add("button");
         content_child.appendChild(button);
       } else if (child.text == "Accordion") {
-
         const details = document.createElement("details");
         const summary = document.createElement("summary");
         const details_child = document.createElement("p");
@@ -68,11 +67,10 @@ const App = {
         details.appendChild(summary);
         details.appendChild(details_child);
         content_child.appendChild(details);
-
-
       } else if (child.text == "Input") {
-        
         const input = document.createElement("input");
+        input.classList.add("input");
+
         input.setAttribute("type", "text");
         input.setAttribute("name", "name");
         input.setAttribute("placeholder", "placeholder");
