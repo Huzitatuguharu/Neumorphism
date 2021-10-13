@@ -6,14 +6,14 @@
 const App = {
   // Run this function to start the app: App.init()
   init() {
-    console.log("Start the engines")
+    console.log("Start the engines");
 
     // this: the context of the Object/function/class
-    console.log("->", this)
+    console.log("->", this);
 
-    this.controllers.createStaticElements()
+    this.controllers.createStaticElements();
 
-    console.log("Finished")
+    console.log("Finished");
   },
 
   // Here is where we keep our app variables
@@ -38,88 +38,123 @@ const App = {
   controllers: {
     // Render dynamically the elements
     showElement(child) {
-      console.log("lets render", child)
-      document.title = child.text
+      console.log("lets render", child);
+      document.title = child.text;
 
       // Clear the previous content
-      App.elements.content.innerHTML = ""
+      App.elements.content.innerHTML = "";
+      App.elements.content.style.border = "none";
+      const content_child = document.createElement("div");
+
+      if (child.text === "Button") {
+        const button = document.createElement("button");
+
+        button.innerHTML = "Button";
+        button.classList.add("button");
+        content_child.appendChild(button);
+      } else if (child.text == "Accordion") {
+        const details = document.createElement("details");
+        const summary = document.createElement("summary");
+        const details_child = document.createElement("p");
+
+        details_child.innerHTML = "details_child";
+        summary.innerHTML = "summary";
+
+        details.classList.add("details");
+        summary.classList.add("summary");
+        details_child.classList.add("details_child");
+
+        details.appendChild(summary);
+        details.appendChild(details_child);
+        content_child.appendChild(details);
+      } else if (child.text == "Input") {
+        const input = document.createElement("input");
+        input.classList.add("input");
+
+        input.setAttribute("type", "text");
+        input.setAttribute("name", "name");
+        input.setAttribute("placeholder", "placeholder");
+
+        content_child.appendChild(input);
+      }
 
       // Create the iframe
-      const iframe = document.createElement("iframe")
-      iframe.src = child.src
-      iframe.style.width = "60%"
-      iframe.style.height = "500px"
-      iframe.style.borderRadius = "4px"
-      iframe.style.overflow = "hidden"
-      iframe.allow =
-        "accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-      iframe.sandbox =
-        "allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+      // const iframe = document.createElement("iframe");
+      // iframe.src = child.src;
+      // iframe.style.width = "60%";
+      // iframe.style.height = "500px";
+      // iframe.style.borderRadius = "4px";
+      // iframe.style.overflow = "hidden";
+      // iframe.allow =
+      //   "accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking";
+      // iframe.sandbox =
+      //   "allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts";
 
       // append and show the iframe
-      App.elements.content.appendChild(iframe)
+      // App.elements.content.appendChild(iframe);
+      App.elements.content.appendChild(content_child);
     },
 
     createStaticElements() {
-      const els = App.elements
+      const els = App.elements;
 
-      console.log("Create static elements")
+      console.log("Create static elements");
 
       // containerにclassname = containerを追加
-      els.container.classList.add("container")
+      els.container.classList.add("container");
       // headerにclass =main_contentを追加
-      els.container.classList.add("main_content")
-      console.log("container", els.container)
+      els.container.classList.add("main_content");
+      console.log("container", els.container);
 
       // headerにclass = container__headerを追加
-      els.header.classList.add("container__header")
-      console.log("header", els.header)
+      els.header.classList.add("container__header");
+      console.log("header", els.header);
 
       // リンクを追加
-      els.a.href = "./index.html"
+      els.a.href = "./index.html";
       // 文字列追加
-      els.a.innerHTML = "Neumorphism"
-      console.log("a", els.a)
+      els.a.innerHTML = "Neumorphism";
+      console.log("a", els.a);
 
       // 文字列追加
-      els.messageJa.innerHTML = "各ページへのリンク"
+      els.messageJa.innerHTML = "各ページへのリンク";
 
       // 文字列追加
-      els.messageEn.innerHTML = "Link to each page"
+      els.messageEn.innerHTML = "Link to each page";
 
       // navにclass= container__navを追加
-      els.nav.classList.add("container__nav")
+      els.nav.classList.add("container__nav");
 
       for (let i = 0; i < App.state.navChild.length; i++) {
-        const child = App.state.navChild[i]
+        const child = App.state.navChild[i];
 
-        const item = document.createElement("span")
-        item.classList.add("nav__child")
-        item.innerHTML = child.text
+        const item = document.createElement("span");
+        item.classList.add("nav__child");
+        item.innerHTML = child.text;
         item.onclick = () => {
-          App.controllers.showElement(child)
-        }
+          App.controllers.showElement(child);
+        };
 
-        els.nav.appendChild(item)
+        els.nav.appendChild(item);
       }
 
-      els.content.classList.add("container__content")
+      els.content.classList.add("container__content");
 
       // headerのchildにa追加
-      els.header.appendChild(els.a)
+      els.header.appendChild(els.a);
 
       // mainのchildに追加
-      els.main.appendChild(els.messageJa)
-      els.main.appendChild(els.messageEn)
-      els.main.appendChild(els.nav)
+      els.main.appendChild(els.messageJa);
+      els.main.appendChild(els.messageEn);
+      els.main.appendChild(els.nav);
 
       // containerのchildにheader追加
-      els.container.appendChild(els.header)
-      els.container.appendChild(els.main)
-      els.container.appendChild(els.content)
-      els.app.appendChild(els.container)
+      els.container.appendChild(els.header);
+      els.container.appendChild(els.main);
+      els.container.appendChild(els.content);
+      els.app.appendChild(els.container);
 
-      console.log("Done")
+      console.log("Done");
     },
   },
 
@@ -135,9 +170,9 @@ const App = {
     nav: document.createElement("nav"),
     content: document.createElement("div"),
   },
-}
+};
 
-App.init()
+App.init();
 
 // // Arraydeclaration;
 // let nav__child = []

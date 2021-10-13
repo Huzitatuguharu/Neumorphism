@@ -49,8 +49,8 @@ html {
 body {
   background-color: #fafafa;
   color: #333;
-  font-family: "Helvetica Neue", "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", meiryo,
-    sans-serif;
+  font-family: "Helvetica Neue", "Segoe UI", "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", meiryo, sans-serif;
   line-height: 1.5;
   min-height: 100%;
   /* 1 */
@@ -595,6 +595,8 @@ body {
 .container__content {
   border: 1px solid black;
   width: 90%;
+  display: flex;
+  justify-content: center;
 }
 
 /**
@@ -605,4 +607,131 @@ body {
 iframe {
   border: 1px solid #414b5a;
   max-width: 100%;
+}
+
+/* ==========================================================================
+button
+ */
+
+.button {
+  color: #414b5a;
+  padding: 18px;
+  border-radius: 16px;
+  background: #edfafd;
+  box-shadow: -8px -8px 13px rgba(255, 255, 255, 0.8), 8px 8px 13px #d1dcdf;
+  margin: auto;
+  transition: 0.2s;
+}
+
+.button:hover {
+  background-color: #b8e1ff;
+  cursor: pointer;
+}
+.button:active {
+  background: #edfafd;
+  box-shadow: inset 13px 13px 21px #e1eef0, inset -13px -13px 21px #f9ffff;
+}
+
+.disabled {
+  background: #dbdbdb;
+}
+
+.disabled:hover {
+  background: #dbdbdb;
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+Accordion
+ */
+
+summary {
+  display: block;
+}
+/* Chrome、Safari */
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.summary {
+  color: #414b5a;
+  padding: 18px;
+  border-radius: 16px;
+  background: #edfafd;
+  box-shadow: -8px -8px 13px rgba(255, 255, 255, 0.8), 8px 8px 13px #d1dcdf;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.details_child {
+  margin: 0;
+  padding: 20px;
+}
+
+.summary:hover {
+  background-color: #c1e1ff;
+  cursor: pointer;
+}
+.summary:active {
+  background: #edfafd;
+  box-shadow: inset 13px 13px 21px #e1eef0, inset -13px -13px 21px #f9ffff;
+}
+
+.summary:before {
+  font-family: "Material Icons";
+  content: "\e145";
+}
+
+/* オープン時 */
+
+details[open] {
+  color: #414b5a;
+  border-radius: 16px;
+  background: #edfafd;
+  box-shadow: -8px -8px 13px rgba(255, 255, 255, 0.8), 8px 8px 13px #d1dcdf;
+  margin: auto;
+}
+
+details[open] .summary {
+  color: #0040a0;
+  border-radius: 16px;
+  font-weight: bold;
+  background: #edfafd;
+  box-shadow: none;
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+
+details[open] .summary:hover {
+  background-color: #c1e1ff;
+  cursor: pointer;
+}
+
+details[open] .summary:before {
+  transform: rotate(45deg);
+}
+
+/* ==========================================================================
+Input
+ */
+
+.input[type="text"] {
+  font-weight: bold;
+  color: #414b5a;
+  padding: 18px;
+  border: none;
+  background: #edfafd;
+  border-radius: 16px; /* 角丸 */
+  box-shadow: inset 8px 8px 13px #e1eef0, inset -8px -8px 13px #f9ffff;
+  margin: auto;
+  transition: 0.2s;
+  width: 100%;
+}
+
+.input[type="text"]:focus {
+  border-bottom: 5px solid #b8e1ff;
+  outline: 0;
 }
